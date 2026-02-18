@@ -2,6 +2,29 @@ import matplotlib.pyplot as plt
 import numpy as np
 import astropy.io.fits as fits
 
+# We are analyzing NGC 6946 for part 2 
+dat0 = fits.open("https://www2.mpia-hd.mpg.de/THINGS/Data_files/NGC_6946_NA_MOM0_THINGS.FITS")
+dat1 = fits.open("https://www2.mpia-hd.mpg.de/THINGS/Data_files/NGC_6946_NA_MOM1_THINGS.FITS")
+dat2 = fits.open("https://www2.mpia-hd.mpg.de/THINGS/Data_files/NGC_6946_NA_MOM2_THINGS.FITS")
+data0 = dat0[0].data[0][0] # save image to 2d numpy array
+data1 = dat1[0].data[0][0] 
+data2 = dat2[0].data[0][0]
+
+plt.imshow(data0, origin = "lower" ) # plot 2d data array
+plt.title("Moment 0 - Atomic Hydrogen Density")
+plt.colorbar()
+plt.show()
+
+plt.imshow(data1, origin = "lower")
+plt.title("Moment 1 - Mean Velocity")
+plt.colorbar()
+plt.show()
+
+plt.imshow(data2, origin = "lower")
+plt.title("Moment 2 - Velocity Dispersion")
+plt.colorbar()
+plt.show()
+
 # Determining Theta
 # first, get data into workable format. 
 # let's learn a bit about the dataset first. 
